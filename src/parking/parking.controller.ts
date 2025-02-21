@@ -29,5 +29,23 @@ export class ParkingController {
     return this.parkingService.clearParking(dto);
   }
 
+  @Get('status')
+  getOccupiedSlots() {
+    return this.parkingService.getOccupiedSlots();
+  }
 
+  @Get('registration_numbers/:color')
+  getCarsByColor(@Param('color') color: string) {
+    return this.parkingService.getRegistrationNumbersByColor(color);
+  }
+
+  @Get('slot_numbers/:color')
+  getSlotsByColor(@Param('color') color: string) {
+    return this.parkingService.getSlotNumbersByColor(color);
+  }
+
+  @Get('slot/:regNo')
+  getSlotByRegNo(@Param('regNo') regNo: string) {
+    return this.parkingService.getSlotByRegistration(regNo);
+  }
 }

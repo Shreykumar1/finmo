@@ -62,4 +62,30 @@ export class ParkingService {
     return { freed_slot_number: slotNumber };
   }
 
+  getOccupiedSlots() {
+    return Array.from(this.parkingMap.entries()).map(([slot, car]) => ({
+      slot_no: slot,
+      registration_no: car.regNo,
+      color: car.color,
+    }));
+  }
+
+  getRegistrationNumbersByColor(color: string) {
+    return Array.from(this.parkingMap.values())
+      .filter(car => car.color === color)
+      .map(car => car.regNo);
+  }
+
+  getSlotNumbersByColor(color: string) {
+    return Array.from(this.parkingMap.entries())
+      .filter(([_, car]) => car.color === color)
+      .map(([slot]) => slot);
+  }
+
+  getSlotByRegistration(regNo: string) {
+    for (const [slot, car] of this.parkingMap.entries()) {
+      if (car.regNo === regNo) return { slot_number: slot };
+    }
+    throw new NotFoundException('Car not found');
+  }
 }
