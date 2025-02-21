@@ -1,4 +1,4 @@
-import { Controller, Post, Patch, Get, Body, Param } from '@nestjs/common';
+import { Controller, Post, Patch, Get, Body, Param, HttpCode } from '@nestjs/common';
 import { ParkingService } from './parking.service';
 import { AllocateParkingDto } from './dto/allocate-parking.dto';
 import { ClearParkingDto } from './dto/clear-parking.dto';
@@ -25,6 +25,7 @@ export class ParkingController {
   }
 
   @Post('clear')
+  @HttpCode(200)
   clearParking(@Body() dto: ClearParkingDto) {
     return this.parkingService.clearParking(dto);
   }
