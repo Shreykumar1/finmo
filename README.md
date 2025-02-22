@@ -3,6 +3,11 @@
 ## Overview
 This project implements a RESTful API for a car parking system using TypeScript and NestJS. The system allows customers to use the parking lot without any human intervention, automating the ticketing process and managing parking slots efficiently.
 
+## Hosted Link
+https://finmo-hbmp.onrender.com/
+## Documentation
+https://finmo-hbmp.onrender.com/docs#
+
 ## Features
 - Initialize a parking lot with a specified number of slots.
 - Expand the parking lot by adding more slots.
@@ -20,7 +25,7 @@ This project implements a RESTful API for a car parking system using TypeScript 
 - `POST /clear`: Free a parking slot based on slot number or car registration number.
 - `GET /status`: Fetch all the occupied slots in the parking lot.
 
-For full documentation, visit `/docs`.
+For full documentation, visit `/docs#`.
 
 ## Installation and Usage
 Follow the steps to clone the repository, install dependencies, and start the server.
